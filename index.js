@@ -48,7 +48,7 @@ function createAvalancheWorker(opt) {
         }
         moreJobsExist = false;
         if (typeof options.onNoMoreJobs === 'function') {
-          onNoMoreJobs(numPending);
+          options.onNoMoreJobs(numPending - 1);
         }
         return null;
       })

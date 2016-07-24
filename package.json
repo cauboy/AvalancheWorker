@@ -1,6 +1,6 @@
 {
   "name": "avalanche-worker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Avalanche Worker is a library to process jobs. It's best suited for jobs that are not computational heavy such as HTTP requests, sending emails or push notifications.",
   "main": "index.js",
   "license": "MIT",
