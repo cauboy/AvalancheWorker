@@ -12,15 +12,9 @@ function createAvalancheWorker(opt) {
     PENDING_TASKS_LIMIT: 10,
     FORCE_WORKER_TIME:  1000 * 60 * 5, // 5 minutes
     HEARTBEAT_INTERVAL: 1000 * 1, // 1 second
-    onSuccess: function() {},
-    onError:   function() {},
-    onNoMoreJobs: function() {},
   };
 
   var options = Object.assign(defaultOptions, opt);
-  var onError = opt.onError;
-  var onSuccess = opt.onSuccess;
-  var onNoMoreJobs = opt.onNoMoreJobs;
   var getNewJob = opt.getNewJob;
 
   // Private data
@@ -48,6 +42,7 @@ function createAvalancheWorker(opt) {
       .then(function(job) {
         currentJob = job;
         if (job) {
+          moreJobsExist = true;
           worker();
           return job.process();
         }
@@ -69,7 +64,9 @@ function createAvalancheWorker(opt) {
         numPending--;
       })
       .catch(function(error) {
-        options.onError(error, currentJob, new Date(), numPending);
+        if (typeof options.onError === 'function') {
+          options.onError(error, currentJob, new Date(), numPending);
+        }
       });
   }
 
