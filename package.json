@@ -1,0 +1,36 @@
+{
+  "name": "avalanche-worker",
+  "version": "1.0.0",
+  "description": "Avalanche Worker is a library to process jobs. It's best suited for jobs that are not computational heavy such as HTTP requests, sending emails or push notifications.",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Clemens Bachmair",
+    "email": "clemens@mcm-init.com",
+    "url": "https://github.com/="
+  },
+  "dependencies": {
+    "bluebird": "^3.4.1"
+  },
+  "devDependencies": {
+    "tape": "^4.6.0"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "worker",
+    "queue",
+    "process",
+    "background",
+    "asynchronous"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cauboy/avalanche-worker.git"
+  },
+  "homepage": "https://github.com/cauboy/avalanche-worker",
+  "bugs": {
+    "url": "https://github.com/cauboy/avalanche-worker/issues"
+  }
+}
